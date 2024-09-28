@@ -1,0 +1,42 @@
+// __        __          _                 
+// \ \      / /_ _ _   _| |__   __ _ _ __  
+//  \ \ /\ / / _` | | | | '_ \ / _` | '__| 
+//   \ V  V / (_| | |_| | |_) | (_| | |    
+//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    
+//                 |___/                   
+//  
+// by Vladlen Belov (2023) 
+// ----------------------------------------------------- 
+//
+{
+    // General Settings
+    "height": 32,
+    "layer": "top",
+    "margin-top": 8,
+    "margin-bottom": -6,
+    "margin-left": 4,
+    "margin-right": 4,    
+    "spacing": 0,
+
+    // Load Modules
+    "include": ["~/.config/waybar/modules.json"],
+
+    // Modules Left
+    "modules-left": [
+        "group/desktops",
+        "mpris"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "clock"
+    ],
+
+    // Modules Right    
+    "modules-right": [
+    	"group/hardware",
+    	"group/devices",
+    	"tray",
+    	"custom/exit"
+    ]
+}

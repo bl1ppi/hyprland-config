@@ -1,0 +1,200 @@
+//  __  __           _       _            
+// |  \/  | ___   __| |_   _| | ___  ___  
+// | |\/| |/ _ \ / _` | | | | |/ _ \/ __| 
+// | |  | | (_) | (_| | |_| | |  __/\__ \ 
+// |_|  |_|\___/ \__,_|\__,_|_|\___||___/ 
+//                                        
+//  
+// by Vladlen Belov (2024) 
+// ----------------------------------------------------- 
+//
+{
+    // Workspaces
+    "hyprland/workspaces" : {
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+        	"1": "",
+        	"2": "",
+        	"3": "",
+        	"4": "",
+        	"5": "",
+        	"6": "",
+        	"7": "",
+        	"8": "",     	
+			"urgent": "",
+			"default": ""
+        },       
+        "persistent-workspaces": {
+        	"HDMI-A-1": [1,2,3,4],
+        	"HDMI-A-2": [5,6,7,8]
+        }
+    },
+
+    // Hyprland Window
+    "hyprland/window": {
+        "separate-outputs": true,
+        "icon": true,
+        "max-length": 16
+    },
+
+    // Wofi Application Launcher
+    "custom/appmenu": {
+        "format": "",
+        "on-click": "sleep 0.2;kill wofi;wofi --show drun",
+        "tooltip": false
+    },
+
+	// Audio player
+	"mpris": {
+		"format": "  {status_icon} {dynamic}",
+		"format-paused": "  {status_icon} {dynamic}",
+		"dynamic-len": 28,
+		"interval": 0.5,
+		"dynamic-order": ["title", "artist"],
+		"status-icons": {
+			"playing": "",
+			"paused": "",
+			"stopped": ""
+		},
+		"ignored-players": ["firefox"]
+	},
+	
+    // Clock
+    "clock": {
+		"format": " {:%H:%M %A}",
+		"format-alt": " {:%A, %B %d, %Y %R}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+		            "mode"          : "year",
+		            "mode-mon-col"  : 3,
+		            "weeks-pos"     : "right",
+		            "on-scroll"     : 1,
+		            "format": {
+		                      "months":     "<span color='#ffead3'><b>{}</b></span>",
+		                      "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+		                      "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+		                      "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+		                      "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+		                      }
+		            },
+		"actions":  {
+		            "on-click-right": "mode",
+		            "on-scroll-up": "tz_up",
+		            "on-scroll-down": "tz_down",
+		            "on-scroll-up": "shift_up",
+		            "on-scroll-down": "shift_down"
+		            }
+	},
+
+    // CPU
+    "cpu": {
+    	"interval": 5,
+        "format": " {usage}%",
+        "on-click": "kitty -e htop"
+    },
+
+    // Memory
+    "memory": {
+    	"interval": 5,
+        "format": " {used:0.1f}G",
+        "on-click": "kitty -e htop"
+    },
+
+	// Harddisc space used
+    "disk": {
+        "interval": 30,
+        "format": " {percentage_used}%",
+        "path": "/",
+        "on-click": "kitty -e htop"
+    },
+
+    // Temperature
+    "temperature": {
+    	"interval": 5,
+        "thermal-zone": 2,
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°C",
+    	"format": " {temperatureC}°C"
+    }, 
+
+    // Network
+    "network": {
+        "format-ethernet": " eth",
+        "format-disconnected": " eth",
+        "tooltip-format": " {ifname} via {gwaddri}",
+        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+
+    // Pulseaudio
+    "pulseaudio": {
+        "format": "{icon} {volume}%   {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", " ", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    // Language
+    "hyprland/language": {
+    	"format": " {}",
+    	"format-en": "us",
+    	"format-ru": "ru",
+    	"tooltip": false
+    },
+
+    // Tray
+    "tray": {
+    	"icon-size": 16,
+    	"spacing": 8
+    },
+
+    // Power Menu
+    "custom/exit": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+
+	// Groups
+	"group/desktops": {
+		"orientation": "horizontal",
+		"modules": [
+			"custom/appmenu",
+			"hyprland/workspaces",
+			"hyprland/window"
+		]
+	},
+	"group/hardware": {
+		"orientation": "horizontal",
+		"modules": [
+			"cpu",
+			"memory",
+			"disk",
+			"temperature"
+		]
+	},
+	"group/devices": {
+		"orientation": "horizontal",
+		"modules": [
+			"network",
+			"pulseaudio",
+			"hyprland/language"
+		]
+	}
+}

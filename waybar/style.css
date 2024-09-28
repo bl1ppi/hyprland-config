@@ -1,0 +1,209 @@
+/*
+ * __        __          _                  ____  _         _       
+ * \ \      / /_ _ _   _| |__   __ _ _ __  / ___|| |_ _   _| | ___  
+ *  \ \ /\ / / _` | | | | '_ \ / _` | '__| \___ \| __| | | | |/ _ \ 
+ *   \ V  V / (_| | |_| | |_) | (_| | |     ___) | |_| |_| | |  __/ 
+ *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___| 
+ *                 |___/                              |___/         
+ *  
+ * by Vladlen Belov (2024) 
+ * ----------------------------------------------------- */
+* {
+    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    border: none;
+    border-radius: 0px;
+}
+
+window#waybar {
+    background-color: rgba(0,0,0,0);
+    border-bottom: 0px solid #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+tooltip {
+    border-radius: 16px;
+    background-color: #23283c;
+    opacity: 0.8;
+    padding: 12px;
+    margin: 0px;
+}
+
+tooltip label {
+    color: #aab5de;
+}
+
+/* -----------------------------------------------------
+ * Group-desktop
+ * ----------------------------------------------------- */
+
+#desktops {
+	border-radius: 16px;
+	background-color: #23283c;
+	margin: 0px 16px 0px 8px;
+	padding: 0px 0px 0px 8px;
+	opacity: 0.95;
+}
+
+#workspaces button {
+    border-radius: 16px; 
+    transition: all 0.3s ease-in-out;
+    opacity: 0.4;
+    padding: 0px 8px 0px 8px;
+}
+
+#workspaces button.active {
+    color: #f3ebff;
+    background: #937fc7;
+    border-radius: 16px;
+    transition: all 0.3s ease-in-out;
+    padding: 0px 14px 0px 14px;
+    opacity: 1;
+}
+
+#workspaces button:hover {
+    color: #aab5de;
+    background: #71618f;
+    border-radius: 15px;
+    opacity: 0.7;
+}
+
+#custom-appmenu {
+    font-size: 16px;
+    color: #aab5de;
+    border-radius: 16px;   
+    padding: 0px 10px 0px 10px;
+    margin-left: -4px;
+    margin-right: 8px;
+}
+
+#window {
+    background: #937fc7;
+    border-radius: 16px;
+    color: #f3ebff;
+    font-size: 16px;
+    margin-left: 8px;
+    padding: 0px 4px 0px 4px;
+}
+
+window#waybar.empty #window {
+    background-color:transparent;
+}
+
+/* -----------------------------------------------------
+ * Audio player
+ * ----------------------------------------------------- */
+
+#mpris {
+	background-color: #937fc7;
+	font-size: 16px;
+	color: #f3ebff;
+	opacity: 0.95;
+	border-radius: 16px; 
+	padding: 0px 10px 0px 10px;
+	margin: 0px 16px 0px 16px;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+    background-color: #23283c;
+    font-size: 16px;
+    color: #aab5de;
+    border-radius: 16px; 
+    padding: 0px 10px 0px 10px;
+    opacity: 0.95;
+}
+
+/* -----------------------------------------------------
+ * Group-hardware
+ * ----------------------------------------------------- */
+
+#hardware {
+	border-radius: 16px;
+	background-color: #23283c;
+	margin: 0px 16px 0px 16px;
+	opacity: 0.95;
+}
+
+#memory,#cpu,#disk,#temperature {
+    font-size:16px;
+    color: #aab5de;
+	opacity: 0.8;
+    padding: 0px 8px 0px 8px;
+}
+
+#cpu {
+	margin-left:4px;
+}
+
+#temperature {
+	margin-right:4px;
+}
+
+/* -----------------------------------------------------
+ * Group-devices
+ * ----------------------------------------------------- */
+
+#devices {
+	border-radius: 16px;
+	background-color: #23283c;
+	margin: 0px 16px 0px 16px;
+	opacity: 0.95;
+}
+
+#pulseaudio,#pulseaudio.muted,#network,#language {
+    font-size: 16px;
+    color: #aab5de;
+    opacity: 0.8;
+    padding: 0px 8px 0px 8px;
+}
+
+#network {
+	margin-left:4px;
+}
+
+#language {
+    margin-right:4px;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+	border-radius: 16px;
+	background-color: #937fc7;
+    color: #f3ebff;
+    padding: 0px 16px 0px 16px;
+    margin: 0px 16px 0px 16px;
+    opacity: 0.95;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* -----------------------------------------------------
+ * Custom-exit
+ * ----------------------------------------------------- */
+
+#custom-exit {
+	border-radius: 16px;
+	background-color: #23283c;
+    font-size:16px;
+    color: #aab5de;
+    padding: 0px 10px 0px 10px;
+    margin: 0px 8px 0px 8px;
+    opacity: 0.95;
+}
